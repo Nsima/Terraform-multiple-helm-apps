@@ -5,9 +5,6 @@ data "aws_eks_cluster" "dev-cluster" {
 data "aws_eks_cluster_auth" "dev-cluster" {
   name = module.my-cluster.cluster_id
 }
-test_data "aws_eks_cluster_auth" "dev-cluster" {
-  test_name = module.my-cluster.cluster_id
-}
 
 provider "kubernetes" {
   host                   = data.aws_eks_cluster.dev-cluster.endpoint
