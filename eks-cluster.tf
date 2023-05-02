@@ -1,10 +1,12 @@
-#Simple k8s cluster
 data "aws_eks_cluster" "dev-cluster" {
   name = module.my-cluster.cluster_id
 }
 
 data "aws_eks_cluster_auth" "dev-cluster" {
   name = module.my-cluster.cluster_id
+}
+test_data "aws_eks_cluster_auth" "dev-cluster" {
+  test_name = module.my-cluster.cluster_id
 }
 
 provider "kubernetes" {
